@@ -1,0 +1,66 @@
+          [CNN]
+ Input (Graphene Structure)
+             |
+ Convolution Layer 1 [Filter number:50, filter size:(3,3),stride=(1,1),Activation='elu']
+             |
+ BatchNormalization Layer 1
+             |
+ Convolution Layer 2 [Filter number:50, filter size:(2,2),stride=(1,1),Activation='elu']
+             |
+ BatchNormalization Layer 2
+             |
+ Convolution Layer 3 [Filter number:50, filter size:(2,2),stride=(1,1),Activation='elu']
+             |
+ BatchNormalization Layer 3
+             |
+ Convolution Layer 4 [Filter number:50, filter size:(2,2),stride=(1,1),Activation='elu']
+             |
+ BatchNormalization Layer 4
+             |
+ Convolution Layer 5 [Filter number:50, filter size:(2,2),stride=(1,1),Activation='elu']
+             |
+ BatchNormalization Layer 5
+             |
+ Convolution Layer 6 [Filter number:50, filter size:(2,2),stride=(1,1),Activation='elu']
+             |
+ BatchNormalization Layer 6
+             |
+ Convolution Layer 7 [Filter number:50, filter size:(2,2),stride=(1,1),Activation='elu']
+             |
+ BatchNormalization Layer 7
+             |
+ Convolution Layer 8 [Filter number:50, filter size:(2,2),stride=(1,1),Activation='elu']
+             |
+ BatchNormalization Layer 8
+             |
+ Convolution Layer 9 [Filter number:50, filter size:(2,2),stride=(1,1),Activation='elu']
+             |
+ BatchNormalization Layer 9
+             |
+ Convolution Layer 10 [Filter number:50, filter size:(2,2),stride=(1,1),Activation='elu']
+             |
+ BatchNormalization Layer 10
+             |
+ Convolution Layer 11 [Filter number:50, filter size:(2,2),stride=(1,1),Activation='elu']
+             |
+ BatchNormalization Layer 11
+             |
+ Convolution Layer 12 [Filter number:50, filter size:(2,2),stride=(1,1),Activation='elu']
+             |
+ BatchNormalization Layer 12
+             |
+ Global-Max Pooling Layer
+             |
+ Dropout Layer 1 (Keep_probability:0.6)
+             |
+ Fully-Collected Layer 1 (Neuron Unit:64, Activation:"elu")
+             |
+ Fully-Collected Layer 2 (Neuron Unit:64, Activation:"elu")
+             |
+ Fully-Collected Layer 3 (Neuron Unit:48, Activation:"elu")
+             |
+ Drouout Layer 2 (Keep_probability:0.7)
+             |
+ Output Layer (Neuron unit:1, activation:"elu")
+             |
+   output (Band-Gap value)

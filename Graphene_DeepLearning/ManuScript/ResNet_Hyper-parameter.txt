@@ -1,0 +1,74 @@
+           [ResNet]
+ Input (Graphene Structure)
+             |
+ Convolution Layer 1 [Filter number:24, filter size:(3,3),stride=(1,1),Activation='elu']
+             |
+ BatchNormalization Layer 1
+             |
+ Convolution_Block1 [Layer1 Filter number:24,Layer2 Filter number:24,Layer3 Filter number:48]
+             |
+ Identity_Block1 [Layer1 Filter number:24,Layer2 Filter number:24,Layer3 Filter number:48]
+             |
+ Identity_Block2 [Layer1 Filter number:24,Layer2 Filter number:24,Layer3 Filter number:48]
+             |
+ Convolution_Block2 [Layer1 Filter number:48,Layer2 Filter number:48,Layer3 Filter number:64]
+             |
+ Identity_Block3 [Layer1 Filter number:48,Layer2 Filter number:48,Layer3 Filter number:64]
+             |
+ Identity_Block4 [Layer1 Filter number:48,Layer2 Filter number:48,Layer3 Filter number:64]
+             |
+ Convolution_Block3 [Layer1 Filter number:64,Layer2 Filter number:64,Layer3 Filter number:72]
+             |
+ Identity_Block5 [Layer1 Filter number:64,Layer2 Filter number:64,Layer3 Filter number:72]
+             |
+ Identity_Block6 [Layer1 Filter number:64,Layer2 Filter number:64,Layer3 Filter number:72]
+             |
+ Convolution_Block4 [Layer1 Filter number:72,Layer2 Filter number:72,Layer3 Filter number:84]
+             |
+ Identity_Block7 [Layer1 Filter number:72,Layer2 Filter number:72,Layer3 Filter number:84]
+             |
+ Identity_Block8 [Layer1 Filter number:72,Layer2 Filter number:72,Layer3 Filter number:84]
+             |
+ Global Max-Pooling Layer
+             |
+ Fully-Collected Layer 2 (Neuron Unit:48, Activation:"elu")
+             |
+ Fully-Collected Layer 3 (Neuron Unit:24, Activation:"elu")
+             |
+ Output Layer (Neuron unit:1, activation:"elu")
+             |
+   output (Band-Gap value)
+
+[ResNet- Convolution Block]:
+              Input                                                                                            Input
+                |   												 |
+Convolution Layer 1 (Layer1 Filter number,Filter size:(1,1),stride=(1,1),activation='elu')   Convolution Layer 1 (Layer3 Filter number,Filter size:(1,1),stride=(1,1),activation='elu')
+                |                 										 |
+Convolution Layer 2 (Layer2 Filter number,Filter size:(3,3),stride=(1,1),activation='elu')                       |
+                |                 										 |
+Convolution Layer 3 (Layer3 Filter number,Filter size:(1,1),stride=(1,1),activation='elu')                       |
+                |                 										 |
+                --------------------------------------------------------------------------------------------------
+                                                              |
+                                                         Add Layer (activation='elu')
+                                                              |
+                                                            Output
+                                                              
+[ResNet- Identity Block]:
+              Input                                                                                            Input
+                |   												 |
+Convolution Layer 1 (Layer1 Filter number,Filter size:(1,1),stride=(1,1),activation='elu')                       |
+                |                 										 |
+Convolution Layer 2 (Layer2 Filter number,Filter size:(3,3),stride=(1,1),activation='elu')                       |
+                |                 										 |
+Convolution Layer 3 (Layer3 Filter number,Filter size:(1,1),stride=(1,1),activation='elu')                       |
+                |                 										 |
+                --------------------------------------------------------------------------------------------------
+                                                              |
+                                                         Add Layer (activation='elu')
+                                                              |
+                                                            Output
+
+
+
+
