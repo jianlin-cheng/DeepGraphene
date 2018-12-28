@@ -5,7 +5,7 @@
 *   This Repo contain the source code of Paper `Deep Learning Bandgaps of topologically Doped Graphene` , it contains all algorithms which we use to predict graphene supercells' bandgap values (Graphene-SVR, VCN, RCN, CCN). Meanwhile it contains the latest data of graphene supercell (4*4: 13018, 5*5: 79647, 6*6: 6382).
 <br/><br/>
 ***Repo Structure*** 
-* [Data set:](./Graphene_DeepLearning/Data set)</td> :
+* [Data set:](./Graphene_DeepLearning/Data set) 
     * Data
     * data_script
     * Original_data
@@ -15,7 +15,7 @@
     * Loss_value
     * Model_Image
     * Predict_resul
-* [Predict_h5file :](./Graphene_DeepLearning/)</td>
+* [Predict_h5file :](./Graphene_DeepLearning/)
     * GAN_h5file.zip
     * h5_file.zip
 * [Script :](./Graphene_DeepLearning/Script) : (This folder contain the projec)
