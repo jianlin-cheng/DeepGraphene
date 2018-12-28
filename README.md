@@ -1,2 +1,5 @@
 # DeepGraphene
-Deep learning for predicting the properties of graphene
+
+##Introduction:
+* This is the source code of Paper: Deep Learning Bandgaps of Topologically Doped Graphene 
+*         Yuan Dong, Chuhan Wu, Chi Zhang, Yingda Liu, Jianlin Cheng, Jian Lin
