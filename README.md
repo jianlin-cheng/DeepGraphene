@@ -5,7 +5,7 @@
 *   This Repo contain the source code of Paper `Deep Learning Bandgaps of topologically Doped Graphene` , it contains all algorithms which we use to predict graphene supercells' bandgap values (Graphene-SVR, VCN, RCN, CCN). Meanwhile it contains the latest data of graphene supercell ( 4by4: 13018, 5by5: 79647, 6by6: 6382). 
 *   DeepGraphene is an interdiscipline research that implemented Machine Learning methods toward the bandgap values prediction problem. It described different type of Graphene supercell structure into 2-D matrix, them input these data into Deep Networks or SVR algorithm to extract their spatial and hidden features. Therefore we can predict graphene supercells data band-gap values based on its 2-D structure matrix.  
 
-Brief workflow chart:<br/>
+***Brief workflow chart:***<br/>
 **How to describe Graphene supercell structure:** ![](https://github.com/jianlin-cheng/DeepGraphene/blob/master/Image/image1.png)
  <br/> <br/>
 **The workflow chart (VCN)** ![](https://github.com/jianlin-cheng/DeepGraphene/blob/master/Image/image2.png)
