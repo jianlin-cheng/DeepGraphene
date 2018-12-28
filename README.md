@@ -10,7 +10,7 @@
 >>> * data_script
 >>> * Original_data
 >>> * Processed_Dataset
->> GANs_result :
+> GANs_result :
 >>> H5_file
 >>> Loss_value
 >>> Model_Image
