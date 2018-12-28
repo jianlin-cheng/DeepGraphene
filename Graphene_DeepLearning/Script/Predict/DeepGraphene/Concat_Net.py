@@ -8,18 +8,15 @@ Created on Thu Mar  1 23:34:42 2018
 import numpy as np  
 np.random.seed(1337)  # for reproducibility  
 from keras.models import Sequential,Model  
-from keras.layers import Dense, Dropout, Activation, Flatten,merge,Input  
-from keras.layers import  MaxPooling2D,UpSampling2D,GlobalMaxPooling2D  
-from keras import optimizers
-from keras.utils import np_utils   
-from keras.layers import Conv2D,Conv2DTranspose
+from keras.layers import Dense, Dropout, Activation, Flatten,Input  
+from keras.layers import  GlobalMaxPooling2D  
+from keras import optimizers  
+from keras.layers import Conv2D
 from keras.layers.normalization import BatchNormalization
-import pandas as pd
 import time
 from keras.models import load_model
-import keras.backend as K 
 from keras.layers import concatenate
-
+from keras.callbacks import Callback
 
 class ElapsedTimer(object):
     def __init__(self):
@@ -33,6 +30,14 @@ class ElapsedTimer(object):
             return str(sec / (60 * 60)) + " hr"
     def elapsed_time(self):
         print("The running time of this code: %s " % self.elapsed(time.time() - self.start_time) )
+
+
+class LossHistory(Callback):
+    def on_train_begin(self, logs={}):
+        self.losses = []
+ 
+    def on_batch_end(self, batch, logs={}):
+        self.losses.append(logs.get('loss'))
 
 def Concat_block(inputs):
     x1=Conv2D(60,(3,3),padding='same',data_format="channels_last")(inputs)
@@ -83,14 +88,13 @@ def configure(model,Loss='mse'):
 ###########################################################################################################   
 def GAN_main(Base_dir,Docx,DocY,epoch=3000,batch_size=50,TF=False,mode=None):
     in_shape= (None, None, 1) 
-    Four_InputX=Docx['4by4_data']
-    Four_InputX=Docx['4by4_data']
-    Four_InputY=DocY['4by4_data']
+#    Four_InputX=Docx['4by4_data']
+#    Four_InputY=DocY['4by4_data']
     Five_InputX=Docx['5by5_data']
     Five_InputY=DocY['5by5_data']
-    Six_InputX=Docx['6by6_data']
-    Six_InputY=DocY['6by6_data']
-########################################################################################################### 
+#    Six_InputX=Docx['6by6_data']
+#    Six_InputY=DocY['6by6_data']
+ 
     if TF==False:
         Network=Sequential()
         Network=ModelBuild(Network,in_shape)
@@ -98,29 +102,31 @@ def GAN_main(Base_dir,Docx,DocY,epoch=3000,batch_size=50,TF=False,mode=None):
     else :
         H5_file=Base_dir+'/predict_h5file/5by5_ConcatNet.h5'
         Network=load_model(H5_file)
-########################################################################################################### 
+ 
     timer = ElapsedTimer()        
+
+    history = LossHistory()
     print('/*******************************************************/\n')
     print(' Now we begin to train this model.\n')
     print('/*******************************************************/\n') 
     if mode=='4by4':
         Network.fit(Four_InputX,Four_InputY,epochs=epoch,batch_size=batch_size,validation_split=0.1,shuffle=True)
     elif mode=='5by5':
-        Network.fit(Five_InputX,Five_InputY,epochs=epoch,batch_size=batch_size,validation_split=0.1,shuffle=True)
+        Network.fit(Five_InputX,Five_InputY,epochs=epoch,batch_size=batch_size,validation_split=0.1,shuffle=True,callbacks=[history])
     elif mode=='6by6':
         Network.fit(Six_InputX,Six_InputY,epochs=epoch,batch_size=batch_size,validation_split=0.1,shuffle=True) 
 # =============================================================================
     print('/*******************************************************/')
     print('         finished!!  ')
     timer.elapsed_time()
-########################################################################################################### 
-    #if TF==True:
-    #    h5_dir=Base_dir+'/predict_h5file/total_TF6by6_ConcatNet.h5'
-    #elif TF==False:
-    #    h5_dir=Base_dir+'/predict_h5file/total_Non-TF6by6_ConcatNet.h5'
-    #Network.save(h5_dir)
+ 
+ #   if TF==True:
+ #       h5_dir=Base_dir+'/predict_h5file/total_TF6by6_ConcatNet.h5'
+ #   elif TF==False:
+ #       h5_dir=Base_dir+'/predict_h5file/total_Non-TF6by6_ConcatNet.h5'
+ #   Network.save(h5_dir)
     print('/*******************************************************/\n')    
-    return Network
+    return Network,history
 ########################################################################################################### 
     
 def main(Base_dir,Docx,DocY,epoch=3000,batch_size=50,TF=False):
@@ -141,7 +147,7 @@ def main(Base_dir,Docx,DocY,epoch=3000,batch_size=50,TF=False):
     Five_InputY=DocY['5by5_data']
     Six_InputX=Docx['6by6_data']
     Six_InputY=DocY['6by6_data']
-########################################################################################################### 
+
     if TF==False:
         Network=Sequential()
         Network=ModelBuild(Network,in_shape)
@@ -149,12 +155,12 @@ def main(Base_dir,Docx,DocY,epoch=3000,batch_size=50,TF=False):
     else :
         H5_file=Base_dir+'/predict_h5file/5by5_ConcatNet.h5'
         Network=load_model(H5_file)
-########################################################################################################### 
+ 
     timer = ElapsedTimer()        
     print('/*******************************************************/\n')
     print(' Now we begin to train this model.\n')
     print('/*******************************************************/\n') 
-########################################################################################################### 
+ 
     for i in range(epoch):
         for j in range(Iteration_num):
             if (j+1)*batch_size>len(Docx['4by4_data']):

@@ -6,14 +6,34 @@ Created on Fri Oct 19 10:20:51 2018
 """
 import csv
 import numpy as np
+import time
 
+class ElapsedTimer(object):
+    def __init__(self):
+        self.start_time = time.time()
+    def elapsed(self,sec):
+        if sec < 60:
+            return str(sec) + " sec"
+        elif sec < (60 * 60):
+            return str(sec / 60) + " min"
+        else:
+            return str(sec / (60 * 60)) + " hr"
+    def elapsed_time(self):
+        print("The running time of this code: %s " % self.elapsed(time.time() - self.start_time) )
+        
 def write_data(local_dir,Type,num):
-    file_dir=local_dir+'/Data/dataset/Train_Data_'+Type    
-    save_dir_x=local_dir+'/dataset/InputX_'+Type
-    save_dir_y=local_dir+'/dataset/InputY_'+Type
+    file_dir=local_dir+'dataset/Data/Train_Data_'+Type    
+    save_dir_x=local_dir+'dataset/Processed_Dataset/InputX_'+Type
+    save_dir_y=local_dir+'dataset/Processed_Dataset/InputY_'+Type
     Data_x=''
     Data_y=''
+    timer = ElapsedTimer()
     for i in range(num):
+        if i%1000==0:
+            timer.elapsed_time()
+            print (i)
+            print (" Data has been loaded")
+            timer = ElapsedTimer()
         temp_x=[]
         temp_y=[]
         address_x=file_dir+'/InputX/InputX_'+str(i+1)+'.csv'
@@ -41,9 +61,9 @@ def write_data(local_dir,Type,num):
     file.write(Data_y)
 
 def write_test_data(local_dir,Type,num=1000):
-    file_dir=local_dir+'/Data/dataset/Test_Data_'+Type    
-    save_dir_x=local_dir+'/dataset/InputX_'+Type+'_test'
-    save_dir_y=local_dir+'/dataset/InputY_'+Type+'_test'
+    file_dir=local_dir+'dataset/Data/Test_Data_'+Type    
+    save_dir_x=local_dir+'dataset/Processed_Dataset/InputX_'+Type+'_test'
+    save_dir_y=local_dir+'dataset/Processed_Dataset/InputY_'+Type+'_test'
     Data_x=''
     Data_y=''
     for i in range(num):

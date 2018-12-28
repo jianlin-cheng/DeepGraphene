@@ -16,14 +16,12 @@ import Inception_Net
 import Freeze_Result
 
 import time 
-from keras.models import load_model
 
-#if __name__==' __main__':
 Local_dir = os.path.dirname(__file__)
 Base_dir=(Local_dir.split('Script'))[0]
 Freeze_Result.main()
 ###########################################################################################################
-Epc=250
+Epc=200
 #Type='ResNet'
 Type='ConcatNet'
  #Type='CNN'
@@ -33,9 +31,9 @@ Input_X=[]
 Input_Y=[]
 Test_X=[]
 Test_Y=[]
-#Input_X,Input_Y=Data_processing.Data_process(Base_dir,Four_num=13018,Five_num=18027,Six_num=6382)
+#Input_X,Input_Y=Data_processing.Data_process(Base_dir,Four_num=13018,Five_num=79647,Six_num=6382)
 #Test_X,Test_Y=Data_processing.Test_Data_process(Base_dir,1000)
-Input_X,Input_Y=Data_processing.loading(Base_dir)
+Input_X,Input_Y=Data_processing.Data_loading(Base_dir)
 Test_X,Test_Y=Data_processing.Test_Data_loading(Base_dir)
 #new_X=Data_processing.new_Data_process(Base_dir,1000)
 print('/*******************************************************/')
@@ -45,14 +43,16 @@ print('/*******************************************************/')
 time.sleep(2)
 ###########################################################################################################
 if Type=='CNN':
+#    Model1,History1=Network_standard.GAN_main(Base_dir,Input_X,Input_Y,epoch=Epc,batch_size=512,TF=TransferLearning,mode='5by5')   
     Model=Network_standard.main(Base_dir,Input_X,Input_Y,epoch=Epc,batch_size=512,TF=TransferLearning)
 elif Type=='ConcatNet':
-#    Model=Concat_Net.main(Base_dir,Input_X,Input_Y,epoch=Epc,batch_size=128,TF=TransferLearning)
-    Model=Concat_Net.GAN_main(Base_dir,Input_X,Input_Y,epoch=Epc,batch_size=128,TF=TransferLearning,mode='4by4')
+#    Model2,History2=Concat_Net.GAN_main(Base_dir,Input_X,Input_Y,epoch=Epc,batch_size=256,TF=TransferLearning,mode='5by5')
+    Model=Concat_Net.main(Base_dir,Input_X,Input_Y,epoch=Epc,batch_size=128,TF=TransferLearning)
 elif Type=='Inception':
-    Model=Inception_Net.main(Base_dir,Input_X,Input_Y,epoch=Epc,batch_size=256,TF=TransferLearning)
+    Model=Inception_Net.GAN_main(Base_dir,Input_X,Input_Y,epoch=Epc,batch_size=256,TF=TransferLearning)
 elif Type=='ResNet':
-    Model=Residual_Net.main(Base_dir,Input_X,Input_Y,epoch=Epc,batch_size=512,TF=TransferLearning)      
+#    Model3,History3=Residual_Net.GAN_main(Base_dir,Input_X,Input_Y,epoch=Epc,batch_size=512,TF=TransferLearning,mode='5by5')          
+    Model=Residual_Net.main(Base_dir,Input_X,Input_Y,epoch=Epc,batch_size=256,TF=TransferLearning)    
 print('            Finished Training the Network!!  \n ')
 print('/*******************************************************/')
 ###########################################################################################################
