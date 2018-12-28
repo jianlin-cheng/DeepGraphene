@@ -10,12 +10,12 @@
     * data_script
     * Original_data
     * Processed_Dataset
-* GANs_result :
+* GANs_result : 
     * H5_file
     * Loss_value
     * Model_Image
     * Predict_resul
-* [Predict_h5file :](./Graphene_DeepLearning/)
+* [Predict_h5file :](./Graphene_DeepLearning/) (This folder contain all Deep neural netowkr models we have trained [except Graphene_SVR])
     * GAN_h5file.zip
     * h5_file.zip
 * [Script :](./Graphene_DeepLearning/Script)  (This folder contain all scripts we use)
