@@ -18,7 +18,7 @@
 * [Predict_h5file :](./Graphene_DeepLearning/)
     * GAN_h5file.zip
     * h5_file.zip
-* [Script :](./Graphene_DeepLearning/Script) : (This folder contain the projec)
+* [Script :](./Graphene_DeepLearning/Script)  (This folder contain the projec)
     * Generate
     * Predict
         * DeepGraphene
