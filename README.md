@@ -6,8 +6,9 @@
 *   DeepGraphene is an interdiscipline research that implemented Machine Learning methods toward the bandgap values prediction problem. It described different type of Graphene supercell structure into 2-D matrix, them input these data into Deep Networks or SVR algorithm to extract their spatial and hidden features. Therefore we can predict graphene supercells data band-gap values based on its 2-D structure matrix.  
 
 Brief workflow chart:
-How to describe Graphene supercell structure: ![](https://github.com/jianlin-cheng/DeepGraphene/blob/master/Image/image1.png)
-The workflow chart (VCN) ![](https://github.com/jianlin-cheng/DeepGraphene/blob/master/Image/image2.png)
+**How to describe Graphene supercell structure:** ![](https://github.com/jianlin-cheng/DeepGraphene/blob/master/Image/image1.png)
+ <br/> <br/>
+**The workflow chart (VCN)** ![](https://github.com/jianlin-cheng/DeepGraphene/blob/master/Image/image2.png)
 
 
 ## Requirement:
