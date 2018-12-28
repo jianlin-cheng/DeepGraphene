@@ -21,5 +21,5 @@
 * [Script :](./Graphene_DeepLearning/Script)  (This folder contain all scripts we use)
     * Generate
     * Predict 
-        * [DeepGraphene ] (./Graphene_DeepLearning/Script/Predict/DeepGraphene)  (This folder contains Deep Neural Network algorithms' script: VCN, RCN, CCN)
-        * [Graphene_SVR ]  (./Graphene_DeepLearning/Script/Predict/Graphene_SVR)(This folder contains traditional machine learning algorithm' script: Graphene_SVR)
+        * [DeepGraphene ](./Graphene_DeepLearning/Script/Predict/DeepGraphene)  (This folder contains Deep Neural Network algorithms' script: VCN, RCN, CCN)
+        * [Graphene_SVR ](./Graphene_DeepLearning/Script/Predict/Graphene_SVR) (This folder contains traditional machine learning algorithm' script: Graphene_SVR)
