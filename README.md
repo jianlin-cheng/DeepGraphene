@@ -15,7 +15,7 @@
     * Loss_value
     * Model_Image
     * Predict_resul
-* Predict_h5file(./Graphene_DeepLearning/)</td> :
+* Predict_h5file :(./Graphene_DeepLearning/)</td>
     * GAN_h5file.zip
     * h5_file.zip
 * Script(./Graphene_DeepLearning/Script) : (This folder contain the projec)
