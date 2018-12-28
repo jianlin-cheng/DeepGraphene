@@ -7,9 +7,9 @@
 > Repo Structure : 
 >> Data set
 >>> Data
->>> data_script
->>> Original_data
->>> Processed_Dataset
+>>> * data_script
+>>> * Original_data
+>>> * Processed_Dataset
 >> GANs_result :
 >>> H5_file
 >>> Loss_value
