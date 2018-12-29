@@ -168,14 +168,19 @@ def main(Base_dir,Docx,DocY,epoch=3000,batch_size=50,TF=False):
     in_shape= (None, None, 1) 
     History_4by4=[]
     History_5by5=[]
-#    History_6by6=[]
-    Iteration_num=int(len(Docx['5by5_data'])/batch_size);
+    History_6by6=[]
+#    Iteration_num=int(len(Docx['6by6_data'])/batch_size);
+    temp_len=max(len(Docx['4by4_data']),len(Docx['5by5_data']),len(Docx['6by6_data']))
+    Iteration_num=int(temp_len//batch_size);
+    Four_num=int(len(Docx['4by4_data'])//batch_size);
+    Five_num=int(len(Docx['5by5_data'])//batch_size);
+    Six_num=int(len(Docx['6by6_data'])//batch_size);                 
     Four_InputX=Docx['4by4_data']
     Four_InputY=DocY['4by4_data']
     Five_InputX=Docx['5by5_data']
     Five_InputY=DocY['5by5_data']
-#    Six_InputX=Docx['6by6_data']
-#    Six_InputY=DocY['6by6_data']
+    Six_InputX=Docx['6by6_data']
+    Six_InputY=DocY['6by6_data']
 
 ########################################################################################################### 
     if TF==False:
