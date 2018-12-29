@@ -74,36 +74,3 @@ def write_test_data(local_dir,Type,num=1000):
     file=open(save_dir_y,'w')
     file.write(Data_y)
     
-#save_dir=local_dir+'/dataset/InputX_4by4'
-#save_dir_y=local_dir+'/dataset/InputY_4by4'
-            
-# =============================================================================
-# DataBase_dir='D:/Working_Application/DropBox_File/Dropbox/Graphene_DeepLearning/test_dataset'
-# File_dir=DataBase_dir+'/InputX_1.csv'
-# 
-# csv_file=csv.reader(open(File_dir,encoding='utf-8'))
-# Data=[]
-# temp=[]
-# for i0 in csv_file:
-#     temp.append(i0)
-# 
-# text=''
-# for i0 in temp[0]:
-#     if text=='':
-#         text=str(i0)
-#     else:
-#         text=text+'\t'+str(i0)
-# text=text+'\n'
-# 
-# #temp=np.array(temp,dtype=float)
-# Data=temp
-# Data=np.concatenate((Data,temp),axis=0)
-# 
-# text=''
-# for i0 in temp[0]:
-#     if text=='':
-#         text=str(i0)
-#     else:
-#         text=text+'\t'+str(i0)
-# text=text+'\n'
-# =============================================================================
