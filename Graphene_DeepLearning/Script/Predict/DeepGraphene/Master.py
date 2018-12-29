@@ -35,7 +35,6 @@ Test_Y=[]
 #Test_X,Test_Y=Data_processing.Test_Data_process(Base_dir,1000)
 Input_X,Input_Y=Data_processing.Data_loading(Base_dir)
 Test_X,Test_Y=Data_processing.Test_Data_loading(Base_dir)
-#new_X=Data_processing.new_Data_process(Base_dir,1000)
 print('/*******************************************************/')
 print(' \n           Finished Loading the Data!!  \n ')
 print('  Choosing '+Type+ ' type of Network to train the dataset \n')
