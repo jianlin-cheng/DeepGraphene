@@ -120,4 +120,4 @@ Result=Model.predict(Test_Data)*4.6
 number.insert(1,'Bandgap_value',Result)
 number.to_csv(result_dir)
  #   np.savetxt(Out_Dir,Result,fmt='%10.5f',delimiter=',')
-#------------------------------------------------------------------------------
+#------------------------------------------------------------------------------ 
