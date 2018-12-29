@@ -83,7 +83,7 @@ def configure(Model,Loss='mse'):
     print('\n######################################################################\n')
 
 
-def GAN_main(Base_dir,Docx,DocY,epoch=3000,batch_size=50,TF=False,mode=None):
+def Single_main(Base_dir,Docx,DocY,epoch=3000,batch_size=50,TF=False,mode=None):
     in_shape= (None, None, 1) 
 #    Four_InputX=Docx['4by4_data']
 #    Four_InputY=DocY['4by4_data']
@@ -178,28 +178,10 @@ def main(Base_dir,Docx,DocY,epoch=3000,batch_size=50,TF=False):
             print('In iteration '+str(i)+', The Training detail is :  4by4: '+ str(History_4by4[i]))    
             print('In iteration '+str(i)+', The Training detail is :  5by5: '+ str(History_5by5[i])+'\n')    
             print('In iteration '+str(i)+', The Training detail is :  6by6: '+ str(History_6by6[i])+'\n')    
-# =============================================================================
-#     for i in range(epoch):
-#         for j in range(Iteration_num):
-#             if(j==Iteration_num-1):
-#                 History_4by4.append(Network.train_on_batch(Four_InputX[(j+1)*batch_size:,:,:,:],Four_InputY[(j+1)*batch_size:,:]))
-#                 History_5by5.append(Network.train_on_batch(Five_InputX[(j+1)*batch_size:,:,:,:],Five_InputY[(j+1)*batch_size:,:]))
-#                 History_6by6.append(Network.train_on_batch(Six_InputX[(j+1)*batch_size:,:,:,:],Six_InputY[(j+1)*batch_size:,:]))
-#             else:
-#                 History_4by4.append(Network.train_on_batch(Four_InputX[j*batch_size:(j+1)*batch_size,:,:,:],Four_InputY[j*batch_size:(j+1)*batch_size,:]))
-#                 History_5by5.append(Network.train_on_batch(Five_InputX[j*batch_size:(j+1)*batch_size,:,:,:],Five_InputY[j*batch_size:(j+1)*batch_size,:]))
-#                 History_6by6.append(Network.train_on_batch(Six_InputX[j*batch_size:(j+1)*batch_size,:,:,:],Six_InputY[j*batch_size:(j+1)*batch_size,:]))
-#         if (i%50==0):
-#             print('In iteration '+str(i)+', The Training detail is :  4by4: '+ str(History_4by4[i]))    
-#             print('In iteration '+str(i)+', The Training detail is :  5by5: '+ str(History_5by5[i])+'\n')    
-#             print('In iteration '+str(i)+', The Training detail is :  6by6: '+ str(History_6by6[i])+'\n')    
-# ########################################################################################################### 
-# =============================================================================
-########################################################################################################### 
     if TF==True:
-        h5_dir=Base_dir+'/predict_h5file/total_TF6by6_CNN.h5'
+        h5_dir=Base_dir+'/predict_h5file/total_TF_VCN.h5'
     elif TF==False:
-        h5_dir=Base_dir+'/predict_h5file/total_Non-TF6by6_CNN.h5'
+        h5_dir=Base_dir+'/predict_h5file/total_Non-TF_VCN.h5'
     Network.save(h5_dir) 
     timer.elapsed_time()
     print('/*******************************************************/')
