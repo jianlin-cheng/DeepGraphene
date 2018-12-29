@@ -22,9 +22,9 @@ Base_dir=(Local_dir.split('Script'))[0]
 Freeze_Result.main()
 ###########################################################################################################
 Epc=200
-#Type='ResNet'
-Type='ConcatNet'
- #Type='CNN'
+#Type='RCN'
+Type='CCN'
+ #Type='VCN'
 TransferLearning=False
 ###########################################################################################################
 Input_X=[]  
@@ -42,16 +42,14 @@ print('  Choosing '+Type+ ' type of Network to train the dataset \n')
 print('/*******************************************************/')
 time.sleep(2)
 ###########################################################################################################
-if Type=='CNN':
-#    Model1,History1=Network_standard.GAN_main(Base_dir,Input_X,Input_Y,epoch=Epc,batch_size=512,TF=TransferLearning,mode='5by5')   
+if Type=='VCN':
+#    Model1,History1=Network_standard.Single_main(Base_dir,Input_X,Input_Y,epoch=Epc,batch_size=512,TF=TransferLearning,mode='5by5')   
     Model=Network_standard.main(Base_dir,Input_X,Input_Y,epoch=Epc,batch_size=512,TF=TransferLearning)
-elif Type=='ConcatNet':
-#    Model2,History2=Concat_Net.GAN_main(Base_dir,Input_X,Input_Y,epoch=Epc,batch_size=256,TF=TransferLearning,mode='5by5')
+elif Type=='CCN':
+#    Model2,History2=Concat_Net.Single_main(Base_dir,Input_X,Input_Y,epoch=Epc,batch_size=256,TF=TransferLearning,mode='5by5')
     Model=Concat_Net.main(Base_dir,Input_X,Input_Y,epoch=Epc,batch_size=128,TF=TransferLearning)
-elif Type=='Inception':
-    Model=Inception_Net.GAN_main(Base_dir,Input_X,Input_Y,epoch=Epc,batch_size=256,TF=TransferLearning)
-elif Type=='ResNet':
-#    Model3,History3=Residual_Net.GAN_main(Base_dir,Input_X,Input_Y,epoch=Epc,batch_size=512,TF=TransferLearning,mode='5by5')          
+elif Type=='RCN':
+#    Model3,History3=Residual_Net.Single_main(Base_dir,Input_X,Input_Y,epoch=Epc,batch_size=512,TF=TransferLearning,mode='5by5')          
     Model=Residual_Net.main(Base_dir,Input_X,Input_Y,epoch=Epc,batch_size=256,TF=TransferLearning)    
 print('            Finished Training the Network!!  \n ')
 print('/*******************************************************/')
@@ -62,18 +60,10 @@ Test_6by6=Test_X['6by6_data']
 tempx_1=(Model.predict(Test_4by4))*4.6    
 tempx_2=(Model.predict(Test_5by5))*4.6
 tempx_3=(Model.predict(Test_6by6))*4.6
-#temp_2=(Model.predict(Test_6by6))*4.6
 temp1=Test_Y['4by4_data']*4.6
 temp2=Test_Y['5by5_data']*4.6
 temp3=Test_Y['6by6_data']*4.6
-#temp_4=Test_Y['6by6_data']*4.6
 Prediction=np.concatenate((tempx_1,tempx_2,tempx_3),axis=0)
-#Prediction=tempx_1
-#Prediction=tempx_2
-#Prediction=tempx_2
-#Real=temp1
-#Real=temp2
-#Real=temp3
 Real=np.concatenate((temp1,temp2,temp3),axis=0)
 ###########################################################################################################
 rela_error=0
@@ -101,8 +91,4 @@ print(' \n     The  relative error is:'+str(rela_error)+'   \n')
 print(' \n     The  Absolute error is:'+str(abs_error)+'   \n')
 print(' \n     The  Percent error is : '+str(per_error)+' %   \n')
 print('/*******************************************************/')
-###########################################################################################################
-#new_4by4=new_X['4by4_data']
-#new_5by5=new_X['5by5_data']
-#new_5by5_result=(Model.predict(new_5by5))*4.6
-#new_4by4_result=(Model.predict(new_4by4))*4.6
+
