@@ -3,9 +3,9 @@
          Url: https://arxiv.org/abs/1809.10860  < Under reviewed Form >
 
 ## Information:
-|Author|Chuhan Wu|JianLin cheng|
-|---|---|---
-|E-mail|cwdg9@mail.missouri.edu|chengji@missouri.edu
+|Author|Chuhan Wu|Dong Yuan|JianLin cheng|Jian Lin|
+|---|---|---|---|---
+|E-mail|cwdg9@mail.missouri.edu|dongyu@missouri.edu|chengji@missouri.edu|linjian@missouri.edu
 
  
 
