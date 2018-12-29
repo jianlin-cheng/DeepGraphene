@@ -105,10 +105,6 @@ def ModelBuild(model,input_shape):
     Con4=Convolution_Block(Iden6,[72,72,84])
     Iden6=Identity_Block(Con4,[72,72,84])
     Iden7=Identity_Block(Iden6,[72,72,84])
-
-#    Con5=Convolution_Block(Iden7,[84,84,96])
-#    Iden8=Identity_Block(Con5,[84,84,96])
-#    Iden9=Identity_Block(Iden8,[84,84,96])
     
     f1=GlobalAveragePooling2D(name='Glob_MaxPool_Lay')(Iden7)
 ###########################################################################################################   
@@ -116,7 +112,6 @@ def ModelBuild(model,input_shape):
  #   d1=Dense(64,activation='relu',name='DenseLay_1')(drop1)
     d2=Dense(48,activation='relu',name='DenseLay_2')(drop1)
     d3=Dense(24,activation='elu',name='DenseLay_3')(d2)
-#    drop2=Dropout(0.2,name='Drop_2')(d3)
     O1=Dense(1,activation='elu',name='OutLay')(d3)
     model = Model(input=inputs, output=O1)
     return model
@@ -126,15 +121,13 @@ def mean_pred(y_true,y_pred):
 
 def configure(model,Loss='mse'):
     optimizers.rmsprop(lr=0.045)
- #   optimizers.Adam(lr=0.055,epsilon=10e-8,beta_1=0.9,beta_2=0.99)
     model.compile(loss=Loss,optimizer='rmsprop')#,metrics=[mean_pred])
- #   model.compile(loss=Loss,optimizer='Adam')#,metrics=[mean_pred])
     print('\n################    The Detail of the ResNet     ###################')    
     print(model.summary())
     time.sleep(5)
     print('\n######################################################################\n')
 
-def GAN_main(Base_dir,Docx,DocY,epoch=3000,batch_size=50,TF=False,mode=None):
+def Single_main(Base_dir,Docx,DocY,epoch=3000,batch_size=50,TF=False,mode=None):
     in_shape= (None, None, 1) 
 #    Four_InputX=Docx['4by4_data']
 #    Four_InputY=DocY['4by4_data']
