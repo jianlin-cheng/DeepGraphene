@@ -1,11 +1,11 @@
 # DeepGraphene
- Paper: `Deep Learning Bandgaps of Topologically Doped Graphene` Yuan Dong, Chuhan Wu et.al <br/>
+ Paper: `Deep Learning Bandgaps of Topologically Doped Graphene` Yuan Dong, Chuhan Wu, Chi Zhang, Yingda Liu, Jian Lin, JianLin Cheng  <br/>
          Url: https://arxiv.org/abs/1809.10860  < Under reviewed Form >
 
 ## Information:
-|Author|Chuhan Wu|
-|---|---
-|E-mail|cwdg9@mail.missouri.edu
+|Author|Chuhan Wu|JianLin cheng|
+|---|---|---
+|E-mail|cwdg9@mail.missouri.edu|chengji@missouri.edu
 
  
 
