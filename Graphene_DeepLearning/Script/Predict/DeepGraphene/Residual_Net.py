@@ -5,8 +5,6 @@ Created on Tue Apr 10 10:46:38 2018
 @author: Herman Wu
 """
 
-
-
 import numpy as np  
 np.random.seed(1337)  # for reproducibility  
 from keras.models import Sequential,Model  
@@ -195,29 +193,36 @@ def main(Base_dir,Docx,DocY,epoch=3000,batch_size=50,TF=False):
     print('/*******************************************************/\n')
     print(' Now we begin to train this model.\n')
     print('/*******************************************************/\n') 
-########################################################################################################### 
+###########################################################################################################     
     for i in range(epoch):
         for j in range(Iteration_num):
-            if(j==Iteration_num-1):
-                History_4by4.append(Network.train_on_batch(Four_InputX[(j+1)*batch_size:,:,:,:],Four_InputY[(j+1)*batch_size:,:]))
-                History_5by5.append(Network.train_on_batch(Five_InputX[(j+1)*batch_size:,:,:,:],Five_InputY[(j+1)*batch_size:,:]))
-#                History_6by6.append(Network.train_on_batch(Six_InputX[(j+1)*batch_size:,:,:,:],Six_InputY[(j+1)*batch_size:,:]))
+            if (j+1)*batch_size>len(Docx['4by4_data']):
+                j0=j%Four_num
+                History_4by4.append(Network.train_on_batch(Four_InputX[j0*batch_size:(j0+1)*batch_size,:,:,:],Four_InputY[j0*batch_size:(j0+1)*batch_size,:]))
             else:
                 History_4by4.append(Network.train_on_batch(Four_InputX[j*batch_size:(j+1)*batch_size,:,:,:],Four_InputY[j*batch_size:(j+1)*batch_size,:]))
-                History_5by5.append(Network.train_on_batch(Five_InputX[j*batch_size:(j+1)*batch_size,:,:,:],Five_InputY[j*batch_size:(j+1)*batch_size,:]))
-#                History_6by6.append(Network.train_on_batch(Six_InputX[j*batch_size:(j+1)*batch_size,:,:,:],Six_InputY[j*batch_size:(j+1)*batch_size,:]))
+            if (j+1)*batch_size>len(Docx['5by5_data']):
+                j0=j%Five_num
+                History_5by5.append(Network.train_on_batch(Five_InputX[j0*batch_size:(j0+1)*batch_size,:,:,:],Five_InputY[j0*batch_size:(j0+1)*batch_size,:]))
+            else:
+                History_5by5.append(Network.train_on_batch(Five_InputX[j*batch_size:(j+1)*batch_size,:,:,:],Five_InputY[j*batch_size:(j+1)*batch_size,:]))                
+            if (j+1)*batch_size>len(Docx['6by6_data']):
+                j0=j%Six_num
+                History_6by6.append(Network.train_on_batch(Six_InputX[j0*batch_size:(j0+1)*batch_size,:,:,:],Six_InputY[j0*batch_size:(j0+1)*batch_size,:]))
+            else:
+                History_6by6.append(Network.train_on_batch(Six_InputX[j*batch_size:(j+1)*batch_size,:,:,:],Six_InputY[j*batch_size:(j+1)*batch_size,:]))                
         if (i%50==0):
             print('In iteration '+str(i)+', The Training detail is :  4by4: '+ str(History_4by4[i]))    
             print('In iteration '+str(i)+', The Training detail is :  5by5: '+ str(History_5by5[i])+'\n')    
-#            print('In iteration '+str(i)+', The Training detail is :  6by6: '+ str(History_6by6[i])+'\n')    
+            print('In iteration '+str(i)+', The Training detail is :  6by6: '+ str(History_6by6[i])+'\n')    
 ########################################################################################################### 
     print('/*******************************************************/')
     print('         finished!!  ')
 ########################################################################################################### 
     if TF==True:
-        h5_dir=Base_dir+'/predict_h5file/total_TF6by6_ResNet.h5'
+        h5_dir=Base_dir+'/predict_h5file/total_TF6_Rcn.h5'
     elif TF==False:
-        h5_dir=Base_dir+'/predict_h5file/total_Non-TF6by6_ResNet.h5'
+        h5_dir=Base_dir+'/predict_h5file/total_Non-TF_Rcn.h5'
     Network.save(h5_dir)
     timer.elapsed_time()
     print('/*******************************************************/\n')    
