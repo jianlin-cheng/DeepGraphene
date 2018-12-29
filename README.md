@@ -29,16 +29,9 @@
     * data_script
     * Original_data
     * Processed_Dataset
-* GANs_result : 
-    * H5_file
-    * Loss_value
-    * Model_Image
-    * Predict_resul
 * [Predict_h5file :](./Graphene_DeepLearning/) (This folder contain all Deep neural netowkr models we have trained [except Graphene_SVR])
-    * GAN_h5file.zip
     * h5_file.zip
 * [Script :](./Graphene_DeepLearning/Script)  (This folder contain all scripts we use)
-    * Generate
     * Predict 
         * [DeepGraphene ](./Graphene_DeepLearning/Script/Predict/DeepGraphene)  (This folder contains Deep Neural Network algorithms' script: VCN, RCN, CCN)
         * [Graphene_SVR ](./Graphene_DeepLearning/Script/Predict/Graphene_SVR) (This folder contains traditional machine learning algorithm' script: Graphene_SVR)
@@ -52,5 +45,5 @@
 * If you want to train Graphene_SVR, Go into [Script folader](./Graphene_DeepLearning/Script/Predict/Graphene_SVR), Use `Matlab2017a` to open the script [SVM_Regression](./Graphene_DeepLearning/Script/Predict/Graphene_SVR/SVM_Regression). Run it automatically, them you can get this model
 
 ## Result:
-The training process toward testing data is shown as below `training single Graphene size data's performance`
+Setting 4by4 and 5by5 data as an example, the training process toward testing data is shown as below `training single Graphene size data's performance`
 ![](https://github.com/jianlin-cheng/DeepGraphene/blob/master/Image/image3.jpg)
