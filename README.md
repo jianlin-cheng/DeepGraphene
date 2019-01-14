@@ -38,11 +38,17 @@
         
 ## Usage:
 * Clone the whole repo into your local address.
-* If you want to train DeepGraphene Neural netowrk. Go into [Script folader](./Graphene_DeepLearning/Script/Predict/DeepGraphene) , click [Master.py](./Graphene_DeepLearning/Script/Predict/DeepGraphene/Master.py) . The `line 23` to `line 29` You can set which algorithm you want to choice: `VCN`, `RCN` or `CCN`, if you select one, please annotate other algorithms. 
+<br/>
+
+* If you want to train DeepGraphene Neural netowrk. Go into [Script folder](./Graphene_DeepLearning/Script/Predict/DeepGraphene) , click [Master.py](./Graphene_DeepLearning/Script/Predict/DeepGraphene/Master.py) . The `line 23` to `line 29` You can set which algorithm you want to choice: `VCN`, `RCN` or `CCN`, if you select one, please annotate other algorithms. 
     * Meanwhile you can set the epoch you want to train and whether you need to use `Transfer Learning` toward the problem, transfer learning is good at `single size training problem`, if you want to do that. Set `VCN` as an example, please go to `line 45` to anti-annotate this line and annotate `line 46` too. 
+<br/>
     * This Script is `Training all graphene data together` (4by4, 5by5, 6by6 data together) and the testing data are randomly selected from these data, each size have 1000 test data. The performance of predicting test data will show in the `console window` after you have trained this model.
+<br/>
     * Once your DeepGraphene algorithm's training process is finished, this model will preserve in this [folder](./Graphene_DeepLearning/Predict_h5file) and named as `total_TF_'algorithm you choice'.h5` (with transfer learning) or `total_Non-TF_'algorithm you choice'.h5`  (without transfer learning) automatically.   
-* If you want to train Graphene_SVR, Go into [Script folader](./Graphene_DeepLearning/Script/Predict/Graphene_SVR), Use `Matlab2017a` to open the script [SVM_Regression](./Graphene_DeepLearning/Script/Predict/Graphene_SVR/SVM_Regression.m). From `line 8` to `line 18` you can select the size of Graphene structure you want to train, please do the annotate and anti-anotate process toward this command line. After that,run it,them you can get the model you want, the performance will show in the windows after you have trained the model.
+
+<br/>
+* If you want to train Graphene_SVR, Go into [Script folder](./Graphene_DeepLearning/Script/Predict/Graphene_SVR), Use `Matlab2017a` to open the script [SVM_Regression](./Graphene_DeepLearning/Script/Predict/Graphene_SVR/SVM_Regression.m). From `line 8` to `line 18` you can select the size of Graphene structure you want to train, please do the annotate and anti-anotate process toward this command line. After that,run it,them you can get the model you want, the performance will show in the windows after you have trained the model.
 
 ## Result:
 Setting 4by4 and 5by5 data as an example, the training process toward testing data is shown as below `training single Graphene size data's performance`
