@@ -174,9 +174,9 @@ def main(Base_dir,Docx,DocY,epoch=3000,batch_size=50,TF=False):
                 History_6by6.append(Network.train_on_batch(Six_InputX[j0*batch_size:(j0+1)*batch_size,:,:,:],Six_InputY[j0*batch_size:(j0+1)*batch_size,:]))
             else:
                 History_6by6.append(Network.train_on_batch(Six_InputX[j*batch_size:(j+1)*batch_size,:,:,:],Six_InputY[j*batch_size:(j+1)*batch_size,:]))                
-        if (i%50==0):
+        if (i%20==0):
             print('In iteration '+str(i)+', The Training detail is :  4by4: '+ str(History_4by4[i]))    
-            print('In iteration '+str(i)+', The Training detail is :  5by5: '+ str(History_5by5[i])+'\n')    
+            print('In iteration '+str(i)+', The Training detail is :  5by5: '+ str(History_5by5[i]))    
             print('In iteration '+str(i)+', The Training detail is :  6by6: '+ str(History_6by6[i])+'\n')    
     if TF==True:
         h5_dir=Base_dir+'/predict_h5file/total_TF_VCN.h5'
